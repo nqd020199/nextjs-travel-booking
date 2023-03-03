@@ -76,8 +76,8 @@ header ul li a:is(:hover, .active){
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    box-shadow: 1px 10px 15px 10px #ccc;
+    margin-bottom: 40px;
+    box-shadow: 1px 5px 15px 5px #ccc;
     border-radius: 10px;
 }
 .menu-mobile li{
@@ -93,6 +93,9 @@ header ul li a:is(:hover, .active){
    line-height: 2.1rem;
 }
 
+.bm-burger-button{
+    display: none;
+}
 
 
 @keyframes appearOnLeft{

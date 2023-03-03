@@ -52,12 +52,12 @@ const Header = () => {
             boxShadow: visible ? '2px 20px 30px var(--shadow-color)' : 'none'
         }}>
             <nav>
-                <a href='#' className='logo'>
-                    <i className="fa-solid fa-earth-americas has-text-primary"></i> Travel
+                <a href='/' className='logo'>
+                    <i className="fa-solid fa-earth-americas has-text-primary mr-1"></i> Travel
                 </a>
                 {
                     widthScreen < 800 ?
-                        <a href='#' className="hamberger" onClick={() => setIsActiveMenu(!isActiveMenu)}>
+                        <a href='#' className="hamberger" onClick={() => setIsActiveMenu(isActiveMenu => !isActiveMenu)}>
                             <i class="fa-solid fa-bars"></i>
                         </a>
                         :
@@ -77,8 +77,8 @@ const Header = () => {
                 width={250}
             >
                 <ul className="menu-mobile">
-                    <a href='#' className='logo'>
-                        <i className="fa-solid fa-earth-americas has-text-primary"></i> Travel
+                    <a href='/' className='logo'>
+                        <i className="fa-solid fa-earth-americas has-text-primary mr-3"></i> Travel
                     </a>
                     {categories.map(category => (
                         <li key={category.name}>
