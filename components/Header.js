@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
+import { slide as Menu } from "react-burger-menu";
 import '../styles/header.css'
 
 const categories = [
@@ -13,6 +14,8 @@ const categories = [
 const Header = () => {
     const [visible, setVisible] = useState(false);
     const [widthScreen, setWidthScreen] = useState(window.innerWidth)
+    const [isActiveMenu, setIsActiveMenu] = useState(false);
+
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -36,6 +39,13 @@ const Header = () => {
         }
     }, [])
 
+    useEffect(() => {
+        console.log("DaiNQ 🚀 -> useEffect -> widthScreen > 800:", widthScreen > 800)
+        if (widthScreen > 800) {
+            setIsActiveMenu(false)
+        }
+    }, [widthScreen])
+
     return (
         <header style={{
             background: visible ? 'var(--bg-main)' : 'transparent',
@@ -47,7 +57,7 @@ const Header = () => {
                 </a>
                 {
                     widthScreen < 800 ?
-                        <a href='#' className="hamberger">
+                        <a href='#' className="hamberger" onClick={() => setIsActiveMenu(!isActiveMenu)}>
                             <i class="fa-solid fa-bars"></i>
                         </a>
                         :
@@ -62,6 +72,21 @@ const Header = () => {
                         </ul>
                 }
             </nav>
+            <Menu
+                isOpen={isActiveMenu} left
+                width={250}
+            >
+                <ul className="menu-mobile">
+                    <a href='#' className='logo'>
+                        <i className="fa-solid fa-earth-americas has-text-primary"></i> Travel
+                    </a>
+                    {categories.map(category => (
+                        <li key={category.name}>
+                            <a href={category.link} className=""> {category.name} </a>
+                        </li>
+                    ))}
+                </ul>
+            </Menu>
         </header>
     )
 }

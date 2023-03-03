@@ -53,6 +53,48 @@ header ul li a:is(:hover, .active){
     transition:animation ease .4s ;
 }
 
+.bm-item-list{
+    padding: 0;
+}
+.bm-overlay{
+    padding: 0;
+    transform: translateY(-80px);
+    position: relative;
+    z-index: 200;
+}
+.bm-menu-wrap{
+    transform: translateY(-80px);
+
+}
+.menu-mobile{
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 10px;
+}
+.menu-mobile .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 1px 10px 15px 10px #ccc;
+    border-radius: 10px;
+}
+.menu-mobile li{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.menu-mobile li a{
+   font-size: 1.4rem;
+   font-weight: 700;
+   line-height: 2.1rem;
+}
+
+
+
 @keyframes appearOnLeft{
     0%{
         transform: translateX(100%);
